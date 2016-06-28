@@ -1,0 +1,46 @@
+<div class="row">
+    <div ng-show="loadingPosts" class="text-center">
+        <img src="../app/images/ring-alt.gif" alt="Loading..." />
+        <h4>Loading posts...</h4>
+    </div>
+
+    <div ng-show="!loadingPosts && !posts.length">
+        <h4>No hay post que mostrar.</h4>
+    </div>
+    <div ng-show="!loadingPosts && posts.length">
+        <div class="panel panel-default" ng-repeat="post in posts">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ post.title }}<span class="pull-right">{{ post.created | date: 'dd/MM/yy' }}</span></h3>
+            </div>
+
+            <div class="panel-body">
+                <div ng-bind-html="post.synopsis | wizMarkdownFltr"></div>
+            </div>
+
+            <div class="panel-footer">
+                <span class="label label-primary">{{ post.Category.category1 }}</span>
+                <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+                <a href="#/post/{{post.id}}" class="btn btn-xs btn-success pull-right" ng-click="goToPost(post)">Ver mas</a>
+                <a href="#/editPost/{{post.id}}" class="btn btn-xs btn-primary pull-right" ng-show="token.idUser===post.idUser" ng-click="goToPost(post)">Editar</a>
+                <a class="btn btn-xs btn-danger pull-right" ng-show="token.idUser===post.idUser" ng-click="deletePost(post)">Borrar</a>
+            </div>
+        </div>
+
+        <!-- pager -->
+        <div class="text-center">
+            <ul ng-if="pager.pages.length" class="pagination">
+                <li ng-class="{disabled:pager.currentPage === 1}">
+                    <a ng-click="setPage(1)">First</a>
+                </li>
+
+                <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+                    <a ng-click="setPage(page)">{{page}}</a>
+                </li>
+
+                <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+                    <a ng-click="setPage(pager.totalPages)">Last</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

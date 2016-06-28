@@ -1,0 +1,116 @@
+<form class="form-horizontal" name="ctrl.newPostForm" ng-submit="createPost()" novalidate>
+    <fieldset>
+        <!-- Form Name -->
+        <legend>Nuevo Post</legend>
+        <!-- Text input-->
+        <div class="form-group" ng-class="{ 'has-error': ctrl.newPostForm.titulo.$invalid && ctrl.newPostForm.titulo.$dirty }">
+            <label class="col-md-2 control-label" for="textinput">Título</label>
+            <div class="col-md-10">
+                <input ng-model="post.title" type="text" name="titulo" placeholder="Título" class="form-control input-md" required>
+                <span class="help-block" ng-show="ctrl.newPostForm.titulo.$invalid && ctrl.newPostForm.titulo.$dirty">El titulo es obligatorio</span>
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="Categoria">Categoria</label>
+            <div class="col-md-10 flex">
+                <select ng-options="item as item.category1 for item in categories track by item.id" class="form-control" ng-model="post.Category" required></select>
+                <a class="btn btn-success" data-toggle="modal" data-target="#newCategoryModal"><span class="glyphicon glyphicon-plus"></span></a>
+            </div>
+        </div>
+
+
+        <!-- Textarea -->
+        <div class="form-group" ng-class="{ 'has-error': ctrl.newPostForm.sinopsis.$invalid && ctrl.newPostForm.sinopsis.$dirty }">
+            <label class="col-md-2 control-label" for="Sinopsis">Sinopsis</label>
+            <span class="help-block" ng-show="ctrl.newPostForm.sinopsis.$invalid && ctrl.newPostForm.sinopsis.$dirty">La sinopsis es obligatoria</span>
+            <div class="col-md-12">
+                <wiz-markdown-editor content="post.synopsis" name="sinopsis" textareaclass="form-control">
+                    <wiz-toolbar-button command="bold"><span class="fa fa-bold"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="italic"><span class="glyphicon glyphicon-italic"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="undo"><span class="fa fa-undo"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="redo"><span class="fa fa-repeat"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="heading"><span class="fa fa-header"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="code"><span class="fa fa-code"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="ullist"><span class="fa fa-list-ul"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="ollist"><span class="fa fa-list-ol"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="indent"><span class="glyphicon glyphicon-indent-left"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="outdent"><span class="glyphicon glyphicon-indent-right"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="link"><span class="fa fa-chain"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="img"><span class="glyphicon glyphicon-picture"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="hr">hr</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h0">h0</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h1">h1</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h2">h2</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h3">h3</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h4">h4</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h5">h5</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h6">h6</wiz-toolbar-button>
+                </wiz-markdown-editor>
+            </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group" ng-class="{ 'has-error': ctrl.newPostForm.content.$invalid && ctrl.newPostForm.content.$dirty }">
+            <label class="col-md-2 control-label" for="Contenido">Contenido</label>
+            <span class="help-block" ng-show="ctrl.newPostForm.content.$invalid && ctrl.newPostForm.content.$dirty">El contenido es obligatorio</span>
+            <div class="col-md-12">
+                <wiz-markdown-editor content="post.postContent" name="content" textareaclass="form-control">
+                    <wiz-toolbar-button command="bold"><span class="fa fa-bold"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="italic"><span class="glyphicon glyphicon-italic"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="undo"><span class="fa fa-undo"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="redo"><span class="fa fa-repeat"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="heading"><span class="fa fa-header"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="code"><span class="fa fa-code"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="ullist"><span class="fa fa-list-ul"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="ollist"><span class="fa fa-list-ol"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="indent"><span class="glyphicon glyphicon-indent-left"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="outdent"><span class="glyphicon glyphicon-indent-right"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="link"><span class="fa fa-chain"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="img"><span class="glyphicon glyphicon-picture"></span></wiz-toolbar-button>
+                    <wiz-toolbar-button command="hr">hr</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h0">h0</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h1">h1</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h2">h2</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h3">h3</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h4">h4</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h5">h5</wiz-toolbar-button>
+                    <wiz-toolbar-button command="h6">h6</wiz-toolbar-button>
+                </wiz-markdown-editor>
+            </div>
+        </div>
+    </fieldset>
+
+
+    <h3>Preview</h3>
+    <hr/>
+    <h1>{{ post.title }}</h1>
+    <h4>By {{ userName }}</h4>
+    <wiz-markdown content="post.synopsis" class="jumbotron"></wiz-markdown>
+    <wiz-markdown content="post.postContent"></wiz-markdown>
+
+    <button type="submit" class="btn btn-default pull-right">Guardar <span class="glyphicon glyphicon-floppy-disk"></span></button>
+</form>
+
+<!-- Modal New Category -->
+<div id="newCategoryModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content panel panel-info">
+            <div class="panel-heading">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">¿Nueva categoria?</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" ng-model="newCategory.category1" class="form-control">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveCategory()">Guardar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

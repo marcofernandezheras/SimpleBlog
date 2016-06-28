@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/font-awesome.min.css">
+    <!-- endbuild -->
+</head>
+
+<body ng-app="BlogAngularApp" class="Site">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="header" ng-controller="LogController">
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="#/" ng-click="changeTab($event)">Blog</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+                    <ul class="nav navbar-nav">
+                        <li ng-class="{'active': currentTab === 'index'}"><a ng-href="#/">Home</a></li>
+                        <li ng-class="{'active': currentTab === 'chat'}" ng-show="loged"><a ng-href="#/chat">Chat</a></li>
+                        <li ng-class="{'active': currentTab === 'register'}"><a ng-href="#/register" ng-hide="loged">Registro</a></li>
+                        <li ng-class="{'active': currentTab === 'newPost'}" ng-show="loged"><a ng-href="#/createPost">Create Post</a></li>
+                    </ul>
+
+
+                    <ul class="nav navbar-nav navbar-right" ng-show="loged">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <img src="images/avatars/{{token.avatar}}" class="img-circle" /> {{ token.userName }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#/user">Cuenta</a></li>
+                                <li class="divider"></li>
+                                <li class="text-center">
+                                    <form role="logout" ng-submit="logout()">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-danger">Salir <span class="glyphicon glyphicon-log-out"></span></button>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <form class="navbar-form nav navbar-nav navbar-right" role="login" ng-hide="loged" ng-submit="login()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nombre" ng-model="user.username">
+                            <input type="password" class="form-control" placeholder="Contraseña" ng-model="user.password">
+                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span></button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container Site-content">
+        <div ng-view=""></div>
+    </div>
+
+    <div class="footer">
+        <div class="container text-center">
+            <p><span class="fa fa-code"></span> Marco A. Fernández Heras <span class="fa fa-code"></span></p>
+        </div>
+    </div>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!--<script src="../bower_components/wizMarkdown/wizMarkdown.min.js"></script>-->
+    <script src="../bower_components/wizMarkdown/wizMarkdown.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="../bower_components/angular-messages/angular-messages.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/urls.js"></script>
+
+    <!-- Services -->
+    <script src="scripts/services/userService.js"></script>
+    <script src="scripts/services/postService.js"></script>
+    <script src="scripts/services/pagerService.js"></script>
+    <script src="scripts/services/commentService.js"></script>
+    <script src="scripts/services/categoryService.js"></script>
+    <script src="scripts/services/fileService.js"></script>
+    <script src="scripts/services/markDownEmojiFilter.js"></script>
+
+    <!-- controllers -->
+    <script src="scripts/controllers/logController.js"></script>
+    <script src="scripts/controllers/mainController.js"></script>
+    <script src="scripts/controllers/registerController.js"></script>
+    <script src="scripts/controllers/postController.js"></script>
+    <script src="scripts/controllers/createPostController.js"></script>
+    <script src="scripts/controllers/editPostController.js"></script>
+    <script src="scripts/controllers/userController.js"></script>
+    <script src="scripts/controllers/chatcontroller.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- SignalR -->
+    <script src="../../Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="../../signalr/hubs"></script>
+</body>
+
+</html>

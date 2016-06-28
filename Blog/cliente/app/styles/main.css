@@ -1,0 +1,266 @@
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+body {
+    padding: 0;
+}
+
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* Custom page header */
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
+
+
+/* Make the masthead heading the same height as the navigation */
+
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+
+/* Custom page footer */
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+
+/* Main marketing message and sign up button */
+
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+
+/* Supporting marketing content */
+
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+
+/* Responsive: Portrait tablets and up */
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+.markdown-input {
+    width: 100%;
+    height: 340px !important;
+}
+
+.big-icon {
+    font-size: 2em;
+}
+
+.panel-footer .btn {
+    margin-left: 5px;
+}
+
+.panel-footer {
+    overflow: auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.Site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.Site-content {
+    flex: 1;
+}
+
+.asset-upload {
+    display: flex;
+    width: 100%;
+    height: 300px;
+    border-style: dashed;
+    border-color: #ccc;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0;
+    font-size: 1.5em;
+    color: #777;
+}
+
+.asset-upload img {
+    max-width: 350px;
+    max-height: 250px;
+}
+
+li form button {
+    width: 99%;
+}
+
+.navbar-nav img {
+    max-height: 24px;
+}
+
+.avatar {
+    max-width: 48px;
+    max-height: 48px;
+    margin-right: 1em;
+}
+
+.flex-center {
+    align-items: center;
+}
+
+
+/* Chat styles */
+
+.chat-panel .chat {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li {
+    border-bottom: 1px solid rgb(229, 229, 229);
+    margin-bottom: 15px;
+}
+
+.chat-panel .panel-body,
+.chat-panel .panel-users {
+    overflow-y: scroll;
+    height: 350px;
+}
+
+.chat-panel .panel-body {
+    width: 75%;
+    float: left;
+}
+
+.chat-panel .panel-users {
+    width: 25%;
+}
+
+.panel-users ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    padding-top: 1em;
+}
+
+.panel-users li {
+    border-bottom: 1px dashed gray;
+    margin: 0 15px;
+    padding-bottom: 5px;
+}
+
+.chat-panel::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+.chat-panel::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+.chat-panel::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+}
+
+.chat-avatar img,
+.panel-users img {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.chat-avatar {
+    min-width: 70px;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+.chat-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.chat-content img {
+    max-height: 250px;
+}
+
+.emoji {
+    max-height: 48px;
+    max-width: 48px;
+}
+
+.chat-panel .dropdown-menu {
+    color: black
+}
+
+.chat-panel .dropdown-menu li {
+    padding: 0 0 0 10px;
+}

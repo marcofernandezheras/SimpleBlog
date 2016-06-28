@@ -1,0 +1,49 @@
+{"Username":"admin","Message":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aut officia dolore beatae fuga quas similique. Architecto eligendi, ma","Hour":"11:57:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"hola","Hour":"1:28:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"eeeeeoooo","Hour":"1:29:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"hiiii","Hour":"1:30:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"55555555555","Hour":"1:31:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"66666","Hour":"1:33:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"77777","Hour":"1:35:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"8888","Hour":"1:36:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"9999","Hour":"1:38:00","Avatar":"admin.png"}
+{"Username":"Marco","Message":"1000","Hour":"1:42:00","Avatar":"default.png"}
+{"Username":"admin","Message":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aut officia dolore beatae fuga quas similique. Architecto eligendi, ma","Hour":"2:03:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"???","Hour":"4:09:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"???","Hour":"4:09:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"99","Hour":"4:10:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"33","Hour":"4:10:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"s","Hour":"4:20:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"a","Hour":"4:20:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"a","Hour":"4:20:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"a","Hour":"4:21:00","Avatar":"admin.png"}
+{"Username":"Marco","Message":"a","Hour":"4:21:00","Avatar":"default.png"}
+{"Username":"admin","Message":"![GitHub Logo](/images/logo.png)","Hour":"4:28:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aut officia dolore beatae fuga quas similique. Architecto eligendi, ma","Hour":"4:28:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"![GitHub Logo](/cliente/app/images/ring-alt.gif)","Hour":"4:30:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"![GitHub Logo](https://www.google.com/work/images/logo/google-for-work-social-icon.png)","Hour":"4:31:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"[GitHub](http://github.com)","Hour":"4:42:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"> We're living the future so","Hour":"4:42:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"http://github.com","Hour":"4:42:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"`<addr>` element here instead.","Hour":"4:42:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"- [ ] this is an incomplete item","Hour":"4:43:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"> We're living the future so","Hour":"4:43:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"```javascript function fancyAlert(arg) {   if(arg) {     $.facebox({div:'#foo'})   } } ```","Hour":"4:43:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"First Header | Second Header","Hour":"4:44:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"------------ | -------------","Hour":"4:44:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"~~this~~","Hour":"4:44:00","Avatar":"admin.png"}
+{"Username":"admin","Message":":smile:","Hour":"4:45:00","Avatar":"admin.png"}
+{"Username":"admin","Message":":smile:","Hour":"4:45:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"__This will also be bold__","Hour":"4:46:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"* Item 1 * Item 2   * Item 2a   * Item 2b","Hour":"4:46:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"###### This is an <h6> tag","Hour":"4:47:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"<>","Hour":"4:47:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)","Hour":"4:47:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"<h6>","Hour":"4:47:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"_This will also be italic_","Hour":"4:50:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"![Alt Text](http://www.lazyengineers.com/wp-content/uploads/2016/03/tumblr_inline_n9n9gcBkwR1re0714.gif)","Hour":"4:52:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"icono aki :100: <<<","Hour":"5:05:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"icono aki :100: <<<","Hour":"5:06:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"a","Hour":"5:07:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"chatBody.scrollTop($('#chatBody li:last').offset().top + 30);","Hour":"5:07:00","Avatar":"admin.png"}
+{"Username":"admin","Message":"sad","Hour":"5:07:00","Avatar":"admin.png"}

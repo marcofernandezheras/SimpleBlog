@@ -1,0 +1,41 @@
+<form class="form-horizontal" novalidate name="ctrl.registerForm" ng-submit="register()">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Registro de usuario</legend>
+
+        <!-- Text input-->
+        <div class="form-group" ng-class="{ 'has-error': ctrl.registerForm.username.$invalid && ctrl.registerForm.username.$dirty }">
+            <label class="col-md-4 control-label" for="textinput">Nombre de usuario</label>  
+            <div class="col-md-6">
+                <input name="username" type="text" placeholder="nombre de usuario" class="form-control input-md" ng-model="newUser.username" required>
+                <span class="help-block" ng-show="ctrl.registerForm.username.$invalid && ctrl.registerForm.username.$dirty">El nombre de usuario es obligatorio</span>  
+            </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group" ng-class="{ 'has-error': ctrl.registerForm.password.$invalid && ctrl.registerForm.password.$dirty }">
+            <label class="col-md-4 control-label" for="passwordinput">Contraseña</label>
+            <div class="col-md-6">
+                <input name="password" type="password" ng-model="newUser.password" placeholder="Contraseña" class="form-control input-md" required>
+                <span class="help-block" ng-show="ctrl.registerForm.password.$invalid && ctrl.registerForm.password.$dirty">La contraseña es obligatoria</span>
+            </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group" ng-class="{ 'has-error': ctrl.registerForm.confirmPass.$invalid && ctrl.registerForm.confirmPass.$dirty }">
+            <label class="col-md-4 control-label" for="passwordinput">Confirmar Contraseña</label>
+            <div class="col-md-6">
+                <input name="confirmPass" type="password" placeholder="Confirmar contraseña" class="form-control input-md" ng-model="newUser.passwordConfirm" compare-to="newUser.password" required>
+                <span class="help-block" ng-show="ctrl.registerForm.confirmPass.$dirty && !newUser.passwordConfirm">Las contraseñas deben coincidir</span>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <div class="col-md-4">
+                <input type="submit" class="btn btn-primary" value="Registrarse"></input>
+            </div>
+        </div>
+    </fieldset>
+</form>

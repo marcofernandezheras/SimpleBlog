@@ -1,0 +1,65 @@
+<div>
+    <h2>Avatar</h2>
+    <upload to="/path/to/upload/script.php" ng-model="object.id" on-drop="prepareFile(files)"></upload>
+    <button ng-click="uploadFile()" class="btn btn-primary">upload me</button>
+</div>
+<hr/>
+<div>
+    <button class="btn btn-primary clearfix" ng-click="showPasswordChange = !showPasswordChange" ng-hide="showPasswordChange">Cambiar contraseña</button>
+    <form class="form-horizontal" name="ctrl.changePasswordForm" ng-show="showPasswordChange" ng-submit="changePassword()">
+        <fieldset>
+            <!-- Password input-->
+            <div class="form-group" ng-class="{ 'has-error': ctrl.changePasswordForm.oldPassword.$invalid && ctrl.changePasswordForm.oldPassword.$dirty }">
+                <label class="col-md-4 control-label" for="passwordinput">Contraseña antigua</label>
+                <div class="col-md-6">
+                    <input name="oldPassword" type="password" ng-model="newPass.oldPassword" placeholder="Contraseña" class="form-control input-md" required>
+                    <span class="help-block" ng-show="ctrl.changePasswordForm.oldPassword.$invalid && ctrl.changePasswordForm.oldPassword.$dirty">La contraseña antigua es obligatoria</span>
+                </div>
+            </div>
+
+
+            <!-- Password input-->
+            <div class="form-group" ng-class="{ 'has-error': ctrl.changePasswordForm.password.$invalid && ctrl.changePasswordForm.password.$dirty }">
+                <label class="col-md-4 control-label" for="passwordinput">Contraseña</label>
+                <div class="col-md-6">
+                    <input name="password" type="password" ng-model="newPass.password" placeholder="Contraseña" class="form-control input-md" required>
+                    <span class="help-block" ng-show="ctrl.changePasswordForm.password.$invalid && ctrl.changePasswordForm.password.$dirty">La contraseña nueva es obligatoria</span>
+                </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="form-group" ng-class="{ 'has-error': ctrl.changePasswordForm.confirmPass.$invalid && ctrl.changePasswordForm.confirmPass.$dirty }">
+                <label class="col-md-4 control-label" for="passwordinput">Confirmar Contraseña</label>
+                <div class="col-md-6">
+                    <input name="confirmPass" type="password" placeholder="Confirmar contraseña" class="form-control input-md" ng-model="newPass.passwordConfirm" compare-to="newPass.password" required>
+                    <span class="help-block" ng-show="ctrl.changePasswordForm.confirmPass.$dirty && !newUser.passwordConfirm">Las contraseñas deben coincidir</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" class="btn btn-primary pull-right" value="Cambiar contraseña" />
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<!-- Modal Edit -->
+<div id="modal" class="modal fade" role="dialog" name="ctrl.modal">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content panel panel-info">
+            <div class="panel-heading">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Redirigiendo...</h4>
+            </div>
+            <div class="modal-body text-center">
+                <p>Contraseña cambiada con éxito.</p>
+                <p>Terminando sesión y redirigiendo al index...</p>
+                <img src="../app/images/ring-alt.gif" alt="Loading..." />
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr/>

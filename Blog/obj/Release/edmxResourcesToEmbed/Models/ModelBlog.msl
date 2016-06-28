@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BlogAngularModelStoreContainer" CdmEntityContainer="BlogAngularEntities">
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="BlogAngularModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="category1" ColumnName="category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="BlogAngularModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idPost" ColumnName="idPost" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="comment1" ColumnName="comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="BlogAngularModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+          <ScalarProperty Name="synopsis" ColumnName="synopsis" />
+          <ScalarProperty Name="postContent" ColumnName="postContent" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="BlogAngularModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="lvl" ColumnName="lvl" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="rolname" ColumnName="rolname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Token">
+      <EntityTypeMapping TypeName="BlogAngularModel.Token">
+        <MappingFragment StoreEntitySet="Token">
+          <ScalarProperty Name="token1" ColumnName="token" />
+          <ScalarProperty Name="expires" ColumnName="expires" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="BlogAngularModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserRoles" TypeName="BlogAngularModel.UserRoles" StoreEntitySet="UserRoles">
+      <EndProperty Name="Rol">
+        <ScalarProperty Name="id" ColumnName="idRol" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="id" ColumnName="idUser" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="ChatMessage">
+      <EntityTypeMapping TypeName="BlogAngularModel.ChatMessage">
+        <MappingFragment StoreEntitySet="ChatMessage">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

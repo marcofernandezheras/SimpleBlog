@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a110613a8a444411b1bd50eb6821f9c1" Name="Diagrama1">
+        <EntityTypeShape EntityType="BlogAngularModel.Category" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogAngularModel.Comment" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogAngularModel.Post" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogAngularModel.Rol" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogAngularModel.Token" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogAngularModel.User" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="BlogAngularModel.FK_Post_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogAngularModel.FK_Comment_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogAngularModel.FK_Post_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogAngularModel.FK_Token_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogAngularModel.UserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BlogAngularModel.ChatMessage" Width="1.5" PointX="1.875" PointY="6.75" />
+        <AssociationConnector Association="BlogAngularModel.FK_ChatMessage_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

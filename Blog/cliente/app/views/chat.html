@@ -1,0 +1,87 @@
+<div class="chat-panel panel panel-primary text-center" ng-hide="!connecting && !loading">
+    <img src="../app/images/ring-alt.gif" alt="Loading..." />
+    <h4 ng-bind="status"></h4>
+</div>
+
+<div class="chat-panel panel panel-primary" ng-show="!connecting && !loading">
+    <div class="panel-heading">
+        <span class="glyphicon glyphicon-comment"></span> Chat
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </button>
+            <ul class="dropdown-menu slidedown">
+                <li>
+                    <label>
+                        <input type="checkbox" ng-model="viewAvatars"> Ver avatares
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" ng-model="notifycations"> Notificaciones
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel-body" id="chatBody">
+        <ul class="chat" id="chatUL">
+            <li class="clearfix" ng-class="{ 'right': chat.Username === token.userName, 'left' : chat.Username !== token.userName}" ng-repeat="chat in chats">
+
+                <div ng-if="chat.Username !== token.userName" class="flex">
+                    <div class="chat-avatar">
+                        <img src="images/avatars/{{chat.Avatar}}" alt="User Avatar" class="img-circle" ng-show="viewAvatars">
+                        <strong class="primary-font">{{chat.Username}}</strong>
+                        <small class="text-muted"><span class="glyphicon glyphicon-time"></span>{{chat.Hour}}</small>
+                    </div>
+                    <div class="chat-content">
+                        <div ng-bind-html="chat.Message | wizMarkdownFltr | Emoji"></div>
+                    </div>
+                </div>
+
+                <div ng-if="chat.Username === token.userName" class="flex">
+                    <div class="chat-content">
+                        <div ng-bind-html="chat.Message | wizMarkdownFltr | Emoji"></div>
+                    </div>
+                    <div class="chat-avatar">
+                        <img src="images/avatars/{{chat.Avatar}}" alt="User Avatar" class="img-circle" ng-show="viewAvatars">
+                        <strong class="primary-font">{{chat.Username}}</strong>
+                        <small class="text-muted"><span class="glyphicon glyphicon-time"></span>{{chat.Hour}}</small>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <div class="panel-users">
+        <ul>
+            <li ng-repeat="user in usersInChat">
+                <div>
+                    <img src="images/avatars/{{user.Avatar}}" alt="User Avatar" class="img-circle" ng-show="viewAvatars">
+                    <strong class="primary-font">{{user.Username}}</strong>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-footer">
+        <div class="input-group" ng-class="{ 'has-error': ctrl.newChat.message.$invalid && ctrl.newChat.message.$dirty }">
+            <div class="input-group-addon">
+                <input type="checkbox" ng-model="multiline">
+            </div>
+            <form ng-submit="send()" name="ctrl.newChat">
+                <input type="text" name="message" ng-maxlength="300" ng-hide="multiline" class="form-control input-sm" ng-model="message" placeholder="Type your message here..." />
+                <textarea id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." ng-model="message" ng-maxlength="300" name="message" ng-show="multiline" style="height:150px" />
+            </form>
+            <span class="input-group-btn">               
+                <button class="btn btn-warning btn-sm" id="btn-chat" ng-click="send()">
+                    Enviar
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Guia de MarkDown</a>
+    <a href="http://www.emoji-cheat-sheet.com/" class="pull-right">Guia de Emojis</a>
+</div>

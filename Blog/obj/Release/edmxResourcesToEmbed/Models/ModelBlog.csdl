@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BlogAngularModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BlogAngularEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Category" EntityType="BlogAngularModel.Category" />
+    <EntitySet Name="Comment" EntityType="BlogAngularModel.Comment" />
+    <EntitySet Name="Post" EntityType="BlogAngularModel.Post" />
+    <EntitySet Name="Rol" EntityType="BlogAngularModel.Rol" />
+    <EntitySet Name="Token" EntityType="BlogAngularModel.Token" />
+    <EntitySet Name="User" EntityType="BlogAngularModel.User" />
+    <AssociationSet Name="FK_Post_Category" Association="BlogAngularModel.FK_Post_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Post" Association="BlogAngularModel.FK_Comment_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_User" Association="BlogAngularModel.FK_Post_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Token_User" Association="BlogAngularModel.FK_Token_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Token" EntitySet="Token" />
+    </AssociationSet>
+    <AssociationSet Name="UserRoles" Association="BlogAngularModel.UserRoles">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <EntitySet Name="ChatMessage" EntityType="BlogAngularModel.ChatMessage" />
+    <AssociationSet Name="FK_ChatMessage_User" Association="BlogAngularModel.FK_ChatMessage_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ChatMessage" EntitySet="ChatMessage" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="category1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idPost" Type="Int32" Nullable="false" />
+    <Property Name="idUser" Type="Int32" Nullable="false" />
+    <Property Name="comment1" Type="String" Nullable="false" MaxLength="140" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idUser" Type="Int32" Nullable="false" />
+    <Property Name="idCategory" Type="Int32" Nullable="false" />
+    <Property Name="synopsis" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="postContent" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Category" Relationship="BlogAngularModel.FK_Post_Category" FromRole="Post" ToRole="Category" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="rolname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="lvl" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="token1" />
+    </Key>
+    <Property Name="token1" Type="String" Nullable="false" MaxLength="36" Unicode="true" FixedLength="true" />
+    <Property Name="expires" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="salt" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="true" />
+    <Property Name="created" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Type="String" Name="avatar" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="active" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Post_Category">
+    <End Role="Category" Type="BlogAngularModel.Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Post" Type="BlogAngularModel.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="idCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Post">
+    <End Role="Post" Type="BlogAngularModel.Post" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comment" Type="BlogAngularModel.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="idPost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_User">
+    <End Role="User" Type="BlogAngularModel.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Post" Type="BlogAngularModel.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Token_User">
+    <End Role="User" Type="BlogAngularModel.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Token" Type="BlogAngularModel.Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserRoles">
+    <End Role="Rol" Type="BlogAngularModel.Rol" Multiplicity="*" />
+    <End Role="User" Type="BlogAngularModel.User" Multiplicity="*" />
+  </Association>
+  <EntityType Name="ChatMessage">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Created" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="BlogAngularModel.FK_ChatMessage_User" FromRole="ChatMessage" ToRole="User" />
+    <Property Type="Guid" Name="uid" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ChatMessage_User">
+    <End Type="BlogAngularModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="BlogAngularModel.ChatMessage" Role="ChatMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ChatMessage">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

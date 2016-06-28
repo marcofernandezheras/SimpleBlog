@@ -1,0 +1,87 @@
+<a href="#/editPost/{{post.id}}" ng-show="token.idUser===post.idUser"><span class="glyphicon glyphicon-pencil pull-right big-icon"></span></a>
+<h1>{{ post.title }}</h1>
+<h4>By {{ post.UserName }}</h4>
+<wiz-markdown content="post.synopsis" class="jumbotron"></wiz-markdown>
+<wiz-markdown content="post.postContent"></wiz-markdown>
+<hr/>
+<div ng-show="loadingComments" class="text-center">
+    <img src="../app/images/ring-alt.gif" alt="Loading..." />
+    <h4>Loading comments...</h4>
+</div>
+
+<div ng-show="!loadingComments && !comments.length">
+    <h4>No hay comentarios para este post.</h4>
+</div>
+<div ng-show="!loadingComments && comments.length">
+    <div ng-repeat="comment in comments">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span>{{comment.UserName}}</span>
+            </div>
+            <div class="panel-body flex flex-center">
+                <img src="images/avatars/{{comment.UserAvatar}}" class="img-circle pull-left avatar" />
+                <p>{{comment.comment1}}</p>
+            </div>
+            <div class="panel-footer">
+                <div ng-show="token.idUser===comment.idUser">
+                    <a class="btn btn-xs btn-primary pull-right" data-toggle="modal" data-target="#editCommentModal" ng-click="prepareEdit(comment)">Editar</a>
+                    <a class="btn btn-xs btn-danger pull-left" data-toggle="modal" data-target="#deleteCommentModal" ng-click="prepareDelete(comment)">Borrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr/>
+<div ng-show="loged">
+    <form name="newComment" ng-submit="addComent()">
+        <h4>Nuevo comentario</h2>
+        <input type="text" ng-model="newComent.comment1" class="form-control"/>
+        <button type="submit" class="btn btn-success pull-right">Comentar</button>
+    </form>     
+</div>
+
+<!-- Modal Delete -->
+<div id="deleteCommentModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content--> 
+        <div class="modal-content panel panel-danger">
+            <div class="panel-heading">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">¿Borrar comentario?</h4>
+</div>
+<div class="modal-body">
+    <p>Una vez borrado no podrá recuperarse</p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deleteComment()">Borrar</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- Modal Edit -->
+<div id="editCommentModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content panel panel-info">
+            <div class="panel-heading">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">¿Editar comentario?</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" ng-model="newComentcontent" class="form-control">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="editComment()">Guardar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
